@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+*.log
+*.map
+client/build
+npm-debug.log
+/client/build/*.js
+/client/build/*.css
+.vscode/launch.json
+.vscode/
+.happypack/
