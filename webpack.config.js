@@ -1,15 +1,27 @@
-let path = require('path');
-let LiveReloadPlugin = require('webpack-livereload-plugin');
+const path = require('path');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+const webpack = require("webpack");
+
 module.exports = {
   entry: './client/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/build')
+    path: path.resolve(__dirname, 'client/public/build'),
+    publicPath: '/build/'
   },
   context: __dirname,
   resolve: {
     extensions: ['.js', '.jsx', '.json', '*']
   },
+  watch: true,
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.HotModuleReplacementPlugin()
+    ],
   module: {
     rules: [{
       test: /\.jsx?$/,
