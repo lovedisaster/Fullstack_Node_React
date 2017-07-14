@@ -17,8 +17,6 @@ app.use(function (err, req, res, next) {
 });
 
 //Webpack
-
-
 app.use(webpackMiddleware(webpack(webpackConfig),{
   publicPath: webpackConfig.output.publicPath,
   headers: {"X-Custom-Webpack-Header" : "yes"},
