@@ -25,7 +25,7 @@ class PropertyList extends React.Component {
 
     render() {
         return (
-            <div className="list-container">
+            <div className="list-container clearfix">
               <h1>This is property page</h1>
               <div className="properites pull-left col-6">
                 <h2>Properties</h2>

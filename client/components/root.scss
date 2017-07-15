@@ -4,6 +4,8 @@ $brandColorDark:#e60000;
 /* Shared styles */
 body{
     padding:0;
+    margin:0;
+    overflow-x:hidden;
 }
 ul, li{
     margin:0;
@@ -16,6 +18,15 @@ ul, li{
 .pull-right{
     float:right;
 }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
 
 @import './common/header.scss';
 @import './list/propertiesList.scss';
