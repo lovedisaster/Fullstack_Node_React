@@ -5,10 +5,22 @@ import { bindActionCreators } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+
 class PropertyList extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.props = props;
+        this._addToSaved = this._addToSaved.bind(this);
+    }
+
+    _bgStyle(color){
+      return {
+        "backgroundColor": color
+      }
+    }
+
+    _addToSaved(e){
+      console.log(e.target.id);
     }
 
     render() {
@@ -20,8 +32,16 @@ class PropertyList extends React.Component {
                 <ul className='properites-list'>
                   {
                     this.props.properties.data ? this.props.properties.data.map(p => 
-                    <li>
-                      <span>{p.price}</span>
+                    <li key={'li-' + p.id}>
+                      <span className="agency" style={this._bgStyle(p.agency.brandingColors.primary)}>
+                        <img src={p.agency.logo} alt=''/>
+                      </span>
+                      <span className="property-img" >
+                        <img src={p.mainImage} alt='' id={p.id} onClick={this._addToSaved}/>
+                      </span>
+                      <span className="price">
+                        Price: {p.price}
+                      </span>
                     </li>) : ''
                   }
                 </ul>

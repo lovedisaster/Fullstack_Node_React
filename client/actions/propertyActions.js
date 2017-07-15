@@ -13,7 +13,6 @@ export function loadProperties(){
     return propertyAPI.getProperties()
     .then(
       properties => {
-              console.log(properties);
         dispatch(loadPropertyStatus(properties , true))}
     ).catch(
       error => {

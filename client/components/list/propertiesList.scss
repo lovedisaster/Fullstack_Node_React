@@ -1,0 +1,23 @@
+.list-container{
+    .properites-list{
+        width:100%;
+        border: 2px solid #333;
+        padding:10px;
+        li{
+            border: 1px solid #ddd;
+            display:block;
+            width:100%;
+            clear:both;
+            span{
+                display:block;
+                width:100%;
+                clear:both;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                text-align: left;
+                overflow:hidden;
+            }
+        }
+    }
+}
