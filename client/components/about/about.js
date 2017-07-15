@@ -2,10 +2,8 @@ import React from 'react';
 import * as propertyAction from '../../actions/propertyActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
-class PropertyList extends React.Component {
+class About extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.props = props;
@@ -13,7 +11,7 @@ class PropertyList extends React.Component {
 
     render() {
         return (
-            <h1>This is property page</h1>
+            <h1>This is about page</h1>
         )
     }
 }
@@ -31,4 +29,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PropertyList);
+export default connect(mapStateToProps, mapDispatchToProps)(About);
