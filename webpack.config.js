@@ -16,20 +16,28 @@ module.exports = {
   watch: true,
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-    ],
+  ],
+  devtool: "source-map",
   module: {
     rules: [{
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel-loader'
     },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+    {
+      test: /\.scss$/,
+      use: [{
+        loader: "style-loader"
+      }, {
+        loader: "css-loader", options: {
+          sourceMap: true
+        }
+      }, {
+        loader: "sass-loader", options: {
+          sourceMap: true
+        }
       }]
+    }]
+
   }
 };

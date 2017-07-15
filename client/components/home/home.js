@@ -3,7 +3,7 @@ import * as propertyAction from '../../actions/propertyActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class About extends React.Component {
+class Home extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.props = props;
@@ -11,7 +11,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <h1>REA INTERVIEW PROJECT</h1>
+            <h1>This is home page</h1>
         )
     }
 }
@@ -29,4 +29,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
