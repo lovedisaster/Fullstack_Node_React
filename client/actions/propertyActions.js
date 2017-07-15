@@ -12,7 +12,9 @@ export function loadProperties(){
   return function(dispatch){
     return propertyAPI.getProperties()
     .then(
-      properties => dispatch(loadPropertyStatus(properties , true))
+      properties => {
+              console.log(properties);
+        dispatch(loadPropertyStatus(properties , true))}
     ).catch(
       error => {
           console.log("Failed to load properties")

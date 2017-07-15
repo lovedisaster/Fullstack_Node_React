@@ -3,7 +3,7 @@
 
         //Expose some basic elements to all routes down the chain
         app.use(function (req, res, next) {
-            app.use('/*', require('./all'));
+            app.use('/', require('./all'));
             app.use('/api', require('../apis/properties'));
             next();
         });

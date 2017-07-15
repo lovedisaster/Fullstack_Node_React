@@ -13,7 +13,25 @@ class PropertyList extends React.Component {
 
     render() {
         return (
-            <h1>This is property page</h1>
+            <div className="list-container">
+              <h1>This is property page</h1>
+              <div className="properites pull-left col-6">
+                <h2>Properties</h2>
+                <ul className='properites-list'>
+                  {
+                    this.props.properties.data ? this.props.properties.data.map(p => 
+                    <li>
+                      <span>{p.price}</span>
+                    </li>) : ''
+                  }
+                </ul>
+              </div>
+              <div className="saved-properties pull-right col-6">
+                <h2>Saved Properties</h2>
+                <ul className='properites-list'>
+                </ul>
+              </div>
+            </div>
         )
     }
 }
