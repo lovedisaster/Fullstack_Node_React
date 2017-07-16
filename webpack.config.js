@@ -15,9 +15,10 @@ module.exports = {
   },
   watch: true,
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new LiveReloadPlugin({port: 3001, hostname: 'localhost'})
   ],
-  devtool: "source-map",
+  devtool: "eval-source-map",
   module: {
     rules: [{
       test: /\.jsx?$/,
