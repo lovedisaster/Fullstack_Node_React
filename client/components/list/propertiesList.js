@@ -1,5 +1,5 @@
 import React from 'react';
-import * as propertyAction from '../../actions/propertyActions';
+import * as propertyActions from '../../actions/propertyActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -19,7 +19,13 @@ class PropertyList extends React.Component {
     }
 
     _addToSaved(e){
-      console.log(e.target.id);
+      this.props.actions.addProperty(e.target.id)
+        .then(
+          result => {console.log('success');}
+        )
+        .catch(
+          error => {console.log('error');}
+        )
     }
 
     render() {
@@ -64,7 +70,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(propertyAction, dispatch)
+    actions: bindActionCreators(propertyActions, dispatch)
   };
 }
 
