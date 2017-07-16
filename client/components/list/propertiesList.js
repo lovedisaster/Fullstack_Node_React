@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-
 class PropertyList extends React.Component {
     constructor(props, context) {
         super(props, context);
