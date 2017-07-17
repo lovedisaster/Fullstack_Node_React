@@ -27,13 +27,19 @@ const getPropertyByID = function(properties, id){
 }
 
 const getSavedProperties = function(k, v){
-    const value = cacheServices.getCache(k);
+    let value = cacheServices.getCache(k);
     if(value === undefined){
         cacheServices.setCache(k, v);
         return v;
     }else{
-        cacheServices.setCache(k, [...value, ...v]) 
-        return [...value, ...v];
+        let flag = false;
+        value.forEach(item => {
+            if(item.id === v[0].id){
+                flag = true;
+            }
+        })
+        flag ? '' : cacheServices.setCache(k, [...value, ...v]);
+        return cacheServices.getCache(k);
     }
 }
 module.exports = PropertyListServices;

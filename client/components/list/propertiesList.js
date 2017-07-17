@@ -36,11 +36,11 @@ class PropertyList extends React.Component {
               <h1>This is property page</h1>
               <div className="properites pull-left col-6">
                 <h2>Properties</h2>
-                <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved}/>
+                <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved} type='p'/>
               </div>
               <div className="saved-properties pull-right col-6">
                 <h2>Saved Properties</h2>
-                <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved}/>
+                <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved} type='sp'/>
               </div>
             </div>
         )

@@ -5,13 +5,13 @@
     display:block;
     .properites-list{
         width:100%;
-        border: 2px solid #333;
-        padding:10px;
+        max-width: 400px;
         li{
             border: 1px solid #ddd;
             display:block;
             width:100%;
             clear:both;
+            padding:15px;
             span{
                 display:block;
                 width:100%;
@@ -21,6 +21,15 @@
                 justify-content: center;
                 text-align: left;
                 overflow:hidden;
+                &.property-img{
+                    img{
+                        width:100%;
+                    }
+                }
+            }
+            &.empty{
+                display:block;
+                height:100px;
             }
         }
     }

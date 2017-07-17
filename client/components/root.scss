@@ -28,5 +28,12 @@ ul, li{
 }
 .clearfix { display: inline-block; }
 
+.col-6{
+    width:50%;
+    display:inline-block;
+    margin:0 -15px;
+    padding: 0 15px;
+}
+
 @import './common/header.scss';
 @import './list/propertiesList.scss';
