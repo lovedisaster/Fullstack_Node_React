@@ -1,13 +1,13 @@
 import React from 'react';
 
-const PropertiesList = ({properties,_bgStyle,_addToSaved, type}) => {
+const PropertiesList = ({properties,_bgStyle,_action, type}) => {
     return (
         <ul className='properites-list'>
             {
                 properties.data ? properties.data.map(p =>
                     <li key={'li-' + type + p.id}>
-                        { (type === 'p') ? <button  id={p.id} className='centered-btn add' onClick={_addToSaved}>Add</button> :
-                        <button  id={p.id} className='centered-btn delete' onClick={_addToSaved}>Delete</button> }
+                        { (type === 'p') ? <button  id={p.id} className='centered-btn add' onClick={_action}>Add</button> :
+                        <button  id={p.id} className='centered-btn delete' onClick={_action}>Delete</button> }
 
                         <span className="agency" style={_bgStyle(p.agency.brandingColors.primary)}>
                             <img src={p.agency.logo} alt='' />

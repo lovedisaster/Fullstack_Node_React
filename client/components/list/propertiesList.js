@@ -11,6 +11,7 @@ class PropertyList extends React.Component {
         super(props, context);
         this.props = props;
         this._addToSaved = this._addToSaved.bind(this);
+        this._delete = this._delete.bind(this);
         this._bgStyle = this._bgStyle.bind(this);
     }
 
@@ -30,17 +31,27 @@ class PropertyList extends React.Component {
         )
     }
 
+    _delete(e){
+      this.props.actions.deleteProperty(e.target.id)
+        .then(
+          result => {console.log('success');}
+        )
+        .catch(
+          error => {console.log('error');}
+        )
+    }
+
     render() {
         return (
             <div className="list-container clearfix">
               <h1>This is property page</h1>
               <div className="properites pull-left col-6">
                 <h2>Properties</h2>
-                <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved} type='p'/>
+                <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _action={this._addToSaved} type='p'/>
               </div>
               <div className="saved-properties pull-right col-6">
                 <h2>Saved Properties</h2>
-                <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved} type='sp'/>
+                <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _action={this._delete} type='sp'/>
               </div>
             </div>
         )

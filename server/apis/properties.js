@@ -29,4 +29,12 @@ router.post('/properties/add/:id', noCache, function (req, res) {
    })
 });
 
+router.post('/properties/delete/:id', noCache, function (req, res) {
+   propertyServices
+   .deleteProperty(req.params.id)
+   .then(savedProperties => {
+     res.json(savedProperties)
+   })
+});
+
 module.exports = router;

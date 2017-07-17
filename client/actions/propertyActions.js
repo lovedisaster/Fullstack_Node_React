@@ -40,7 +40,7 @@ export function loadSavedProperties() {
       }
       ).catch(
       error => {
-        console.log("Failed to load properties")
+        console.log("Failed to load saved properties")
         dispatch(loadSavedPropertyStatus([], false))
       }
       )
@@ -66,6 +66,30 @@ export function addProperty(propertyID) {
         error => {
           console.log("Failed to add property, ID : " + propertyID)
           dispatch(addPropertyStatus([], false))
+        }
+      )
+  }
+}
+
+const deletePropertyStatus = function deletePropertyStatus(savedProperties, status) {
+  if (status)
+    return { type: types.DELETE_PROPERTY_SUCCESS, savedProperties };
+  else
+    return { type: types.DELETE_PROPERTY_FAIL, savedProperties };
+}
+
+export function deleteProperty(propertyID) {
+  return function (dispatch) {
+    return propertyAPI.deleteProperty(propertyID)
+      .then(
+      savedProperties => {
+        dispatch(deletePropertyStatus(savedProperties, true))
+        return true;
+      }
+      ).catch(
+        error => {
+          console.log("Failed to delete property, ID : " + propertyID)
+          dispatch(deletePropertyStatus([], false))
         }
       )
   }

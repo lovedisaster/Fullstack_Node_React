@@ -10,6 +10,10 @@ class PropertyAPI{
         return axios.post('/api/properties/add/' + propertyID, {});
     }
 
+    static deleteProperty(propertyID){
+        return axios.post('/api/properties/delete/' + propertyID, {});
+    }
+
     static getSavedProperties(){
         return axios.post('/api/saved-properties/', {})
         .then(p => p);
