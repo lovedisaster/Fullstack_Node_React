@@ -3,6 +3,7 @@ import * as propertyActions from '../../actions/propertyActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import PropertiesList from './_listComponent';
 injectTapEventPlugin();
 
 class PropertyList extends React.Component {
@@ -10,6 +11,7 @@ class PropertyList extends React.Component {
         super(props, context);
         this.props = props;
         this._addToSaved = this._addToSaved.bind(this);
+        this._bgStyle = this._bgStyle.bind(this);
     }
 
     _bgStyle(color){
@@ -34,27 +36,11 @@ class PropertyList extends React.Component {
               <h1>This is property page</h1>
               <div className="properites pull-left col-6">
                 <h2>Properties</h2>
-                <ul className='properites-list'>
-                  {
-                    this.props.properties.data ? this.props.properties.data.map(p => 
-                    <li key={'li-' + p.id}>
-                      <span className="agency" style={this._bgStyle(p.agency.brandingColors.primary)}>
-                        <img src={p.agency.logo} alt=''/>
-                      </span>
-                      <span className="property-img" >
-                        <img src={p.mainImage} alt='' id={p.id} onClick={this._addToSaved}/>
-                      </span>
-                      <span className="price">
-                        Price: {p.price}
-                      </span>
-                    </li>) : ''
-                  }
-                </ul>
+                <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved}/>
               </div>
               <div className="saved-properties pull-right col-6">
                 <h2>Saved Properties</h2>
-                <ul className='properites-list'>
-                </ul>
+                <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _addToSaved={this._addToSaved}/>
               </div>
             </div>
         )
