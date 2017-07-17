@@ -5,6 +5,11 @@ const PropertyListServices = {
         new Promise((resolve, reject) => {
             resolve(properties.results);
         }),
+    
+    getSavedPropertyList : () =>
+        new Promise((resolve, reject) => {
+            resolve(cacheServices.getCache('savedProperties'));
+        }),
 
      addProperty : (propertyID) => 
         new Promise((resolve, reject) => {
@@ -13,7 +18,7 @@ const PropertyListServices = {
             //Get current property from DB / Cache
             let savedProperties = [];
             if(newProperty){
-                savedProperties = getSavedProperties('savedProperties', newProperty);
+                savedProperties = getAndSetSavedProperties('savedProperties', newProperty);
             }
             resolve(savedProperties);
         })
@@ -26,7 +31,7 @@ const getPropertyByID = function(properties, id){
     return newProperty;
 }
 
-const getSavedProperties = function(k, v){
+const getAndSetSavedProperties = function(k, v){
     let value = cacheServices.getCache(k);
     if(value === undefined){
         cacheServices.setCache(k, v);

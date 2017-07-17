@@ -12,6 +12,15 @@ router.post('/properties/', noCache, function (req, res) {
     })
 });
 
+router.post('/saved-properties/', noCache, function (req, res) {
+  //Get properties for users, 
+    propertyServices
+    .getSavedPropertyList()
+    .then(properties => {
+      res.json(properties)
+    })
+});
+
 router.post('/properties/add/:id', noCache, function (req, res) {
    propertyServices
    .addProperty(req.params.id)

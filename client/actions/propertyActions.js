@@ -24,6 +24,29 @@ export function loadProperties() {
   }
 }
 
+const loadSavedPropertyStatus = function loadSavedPropertyStatus(savedProperties, status) {
+  if (status)
+    return { type: types.LOAD_SAVED_PROPERTIES_SUCCESS, savedProperties };
+  else
+    return { type: types.LOAD_SAVED_PROPERTIES_FAILED, savedProperties };
+}
+
+export function loadSavedProperties() {
+  return function (dispatch) {
+    return propertyAPI.getSavedProperties()
+      .then(
+      savedProperties => {
+        dispatch(loadSavedPropertyStatus(savedProperties, true))
+      }
+      ).catch(
+      error => {
+        console.log("Failed to load properties")
+        dispatch(loadSavedPropertyStatus([], false))
+      }
+      )
+  }
+}
+
 const addPropertyStatus = function addPropertyStatus(savedProperties, status) {
   if (status)
     return { type: types.ADD_PROPERTY_SUCCESS, savedProperties };
