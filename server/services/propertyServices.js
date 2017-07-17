@@ -8,13 +8,16 @@ const PropertyListServices = {
 
      addProperty : (propertyID) => 
         new Promise((resolve, reject) => {
+            //Get current property from DB / Cache
+            let savedProperties = [];
             //Get property by id
-            resolve(getPropertyByID(properties,propertyID));
+            const newProperty = getPropertyByID(properties,propertyID);
+            return [...savedProperties, ...newProperty];
+
         })
 }   
 
 const getPropertyByID = function(properties, id){
-    let savedProperties = [];
     const newProperty = properties.results.map(
         item => {
             if(item.id === id){
@@ -22,6 +25,6 @@ const getPropertyByID = function(properties, id){
             }
         }
     )
-    return [...savedProperties, ...newProperty];
+    return newProperty;
 }
 module.exports = PropertyListServices;
