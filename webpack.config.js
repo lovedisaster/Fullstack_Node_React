@@ -2,6 +2,7 @@ const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const webpack = require("webpack");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
   entry: './client/index.js',
   output: {
