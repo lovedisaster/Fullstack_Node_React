@@ -5,10 +5,14 @@ const volleyball = require('volleyball');
 const routers = require("./routers");
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config.js');
 const NodeCache = require( "node-cache" );
+const config = require('../config');
+const webpackConfig = config.isProd ?  require('../webpack.production.config.js') : require('../webpack.config.js');
 
 app.use(volleyball);
+app.set('views', config.paths.server_pages);
+app.set('view engine', 'pug');
+
 app.use(express.static(path.resolve(__dirname, '..', 'client')));
 app.use(express.static(path.resolve(__dirname, '..', 'node_modules')));
 app.use(function (err, req, res, next) {

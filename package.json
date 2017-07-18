@@ -2,12 +2,9 @@
   "name": "react-redux-starter-nathan",
   "version": "1.0.0",
   "description": "Starter",
-  "main": "app.js",
   "scripts": {
-    "start": "node server/app.js",
-    "start-dev": "nodemon server/app.js",
-    "build": "webpack -p",
-    "build-dev": "webpack -w",
+    "prod": "cross-env NODE_ENV=production node ./server/app.js",
+    "start": "cross-env NODE_ENV=development node ./server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -24,6 +21,7 @@
     "express": "^4.15.2",
     "node-cache": "^4.1.1",
     "node-sass": "^4.5.2",
+    "pug": "^2.0.0-rc.2",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-transition-group": "^15.5.2",
