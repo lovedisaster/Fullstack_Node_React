@@ -11,8 +11,8 @@ import {loadProperties , loadSavedProperties} from './actions/propertyActions';
 
 
 const store = configureStore();
-//Init store by async call
 
+//Init store by async call
 store.dispatch(loadProperties());
 store.dispatch(loadSavedProperties());
 

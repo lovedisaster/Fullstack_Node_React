@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import PropertiesList from './_listComponent';
+import loading from "../../assets/css/effects/loading";
+
 injectTapEventPlugin();
 
 class PropertyList extends React.Component {
@@ -41,6 +43,9 @@ class PropertyList extends React.Component {
         )
     }
 
+    componentDidMount(){
+      loading();
+    }
     render() {
         return (
             <div className="list-container clearfix">

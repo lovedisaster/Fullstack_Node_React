@@ -17,7 +17,11 @@ module.exports = {
   watch: true,
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new LiveReloadPlugin({port: 3001, hostname: 'localhost'})
+    new LiveReloadPlugin({port: 3001, hostname: 'localhost'}),
+    new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
   ],
   devtool: "eval-source-map",
   module: {
