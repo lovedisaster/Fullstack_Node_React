@@ -7,11 +7,29 @@
         width:100%;
         max-width: 400px;
         li{
-            border: 1px solid #ddd;
+            border: 1px dashed #ddd;
+            border-bottom:none;
             display:block;
             width:100%;
             clear:both;
             padding:15px;
+            position:relative;
+            &:last-child{
+                border-bottom:1px dashed #ddd;
+
+            }
+            .centered-btn{
+                border:1px solid #333;
+                background-color:#fff;
+                position:absolute;
+                bottom:15px;
+                right:15px;
+                transition: ease all 0.3s;
+                &:hover{
+                    background-color:#333;
+                    color:#fff
+                }
+            }
             span{
                 display:block;
                 width:100%;
@@ -25,6 +43,9 @@
                     img{
                         width:100%;
                     }
+                }
+                &.price{
+                    height:40px;
                 }
             }
             &.empty{

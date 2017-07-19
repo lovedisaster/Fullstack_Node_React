@@ -11,7 +11,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <h1>REA INTERVIEW PROJECT</h1>
+            <h1>REA Code Challenge</h1>
         )
     }
 }

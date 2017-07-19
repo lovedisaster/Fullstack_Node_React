@@ -42,17 +42,16 @@ class PropertyList extends React.Component {
         )
     }
 
-
     render() {
         return (
             <div className="list-container clearfix">
-              <h1>This is property page</h1>
+              <h1>Select Your Properties</h1>
               <div className="properites pull-left col-6">
-                <h2>Properties</h2>
+                <h3>PROPERTIES</h3>
                 <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _action={this._addToSaved} type='p'/>
               </div>
               <div className="saved-properties pull-right col-6">
-                <h2>Saved Properties</h2>
+                <h3>YOUR CHOICES</h3>
                 <PropertiesList properties={this.props.savedProperties} _bgStyle={this._bgStyle} _action={this._delete} type='sp'/>
               </div>
             </div>

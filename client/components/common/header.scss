@@ -23,6 +23,10 @@
                     color: $brandColorDark;
                     font-weight: bold;
                 }
+                &:focus{
+                    color: $brandColorDark;
+                    font-weight: bold;
+                }
             }
         }
     }
