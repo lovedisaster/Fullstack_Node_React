@@ -7,7 +7,7 @@ $z1 : 10;
 $z2 : 20;
 $z3 : 30;
 $z4 : 40;
-
+$z5 : 50;
 /* Shared styles */
 body{
     padding:0;
@@ -65,4 +65,3 @@ ul, li{
 
 @import './common/header.scss';
 @import './list/propertiesList.scss';
-@import '../assets/css/effects/loading.scss';
