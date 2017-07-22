@@ -11,6 +11,5 @@ export default(
        <Route path="property-list" component={PropertyList}/>
        <Route path="about" component={About}/>
        <Route path="*" component={NotFound}/>
-
     </Route>
 );

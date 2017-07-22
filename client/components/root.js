@@ -8,6 +8,13 @@ class RootComponent extends React.Component {
     componentDidMount(){
         this.$el = $(this.el);
         this.$el.fadeOut(1000);
+        $(window).scroll(() => {
+            if($(window).scrollTop() > 0){
+                $('header').addClass('small');
+            }else{
+                $('header').hasClass('small') ? $('header').removeClass('small'): '';
+            }
+        })
     }
     
     render() {
