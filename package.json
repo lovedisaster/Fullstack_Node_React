@@ -5,7 +5,7 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production node ./server/app.js",
     "start": "cross-env NODE_ENV=development node ./server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter progress tools/testSetup.js \"server/services/*.test.js\""
   },
   "author": "",
   "license": "ISC",
@@ -44,7 +44,7 @@
     "babel-preset-es2017": "^6.24.1",
     "chai": "^3.5.0",
     "cross-env": "^3.1.4",
-    "mocha": "^3.1.2",
+    "mocha": "^3.4.2",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "react-tap-event-plugin": "^2.0.1",
