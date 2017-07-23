@@ -5,7 +5,7 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production node ./server/app.js",
     "start": "cross-env NODE_ENV=development node ./server/app.js",
-    "functional-test": "mocha --compilers js:babel-core/register --reporter progress \"tools/test.js\" \"server/services/*.test.js\"",
+    "functional-test": "mocha --compilers js:babel-core/register --reporter progress \"server/tools/test.js\" \"server/services/*.test.js\"",
     "user-test": "jest"
   },
   "author": "",
