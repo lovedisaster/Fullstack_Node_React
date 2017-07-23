@@ -7,7 +7,7 @@ describe('Property Services', () => {
       propertyServices.getPropertyList()
       .then(properties => {
         expect(properties).to.be.a('array');
-        expect(properties).to.have.lengthOf.above(1);
+        expect(properties).to.have.lengthOf(3);
       })
   });
 
