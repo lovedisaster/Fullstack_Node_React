@@ -3,13 +3,18 @@ var express = require('express'),
   propertyServices = require('../services/propertyServices'),
   noCache = require('connect-nocache')();
 
-router.post('/properties/', noCache, function (req, res) {
+router.post('/properties/', function (req, res) {
   //Get properties for users, 
-    propertyServices
-    .getPropertyList()
-    .then(properties => {
-      res.json(properties)
-    })
+    if(req.body && req.body.token === '123'){
+          propertyServices
+          .getPropertyList()
+          .then(properties => {
+            res.json(properties)
+          })
+    }else{
+      res.json('');
+    }
+
 });
 
 router.post('/saved-properties/', noCache, function (req, res) {

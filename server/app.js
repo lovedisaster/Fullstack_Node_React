@@ -8,10 +8,15 @@ const webpack = require('webpack');
 const NodeCache = require( "node-cache" );
 const config = require('../config');
 const webpackConfig = config.isProd ?  require('../webpack.production.config.js') : require('../webpack.config.js');
+const bodyParser = require('body-parser');
 
 app.use(volleyball);
 app.set('views', config.paths.server_pages);
 app.set('view engine', 'pug');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use(express.static(path.resolve(__dirname, '..', 'client')));
 app.use(express.static(path.resolve(__dirname, '..', 'node_modules')));
