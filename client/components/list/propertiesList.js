@@ -7,7 +7,8 @@ import PropertiesList from './_listComponent';
 
 injectTapEventPlugin();
 
-class PropertyList extends React.Component {
+//Export PropertyList for testing
+export class PropertyList extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.props = props;
