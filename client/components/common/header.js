@@ -9,7 +9,7 @@ const Header = () => {
         <nav className='pull-right'>
                 <IndexLink to="/" className="nav_link" activeClassName="active">Home</IndexLink>
                 <Link to="/about" className="nav_link" activeClassName="active">About</Link>
-                <Link to="/property-list" className="nav_link" activeClassName="active">Properties</Link>
+                <Link to="/property-list" className="nav_link" activeClassName="active">Cars</Link>
         </nav>  
        </header>
     );

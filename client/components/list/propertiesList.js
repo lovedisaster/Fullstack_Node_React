@@ -45,9 +45,9 @@ class PropertyList extends React.Component {
     render() {
         return (
             <div className="list-container clearfix">
-              <h1>Select Your Properties</h1>
+              <h1>Select Your Cars</h1>
               <div className="properites pull-left col-6">
-                <h3>PROPERTIES</h3>
+                <h3>CARS</h3>
                 <PropertiesList properties={this.props.properties} _bgStyle={this._bgStyle} _action={this._addToSaved} type='p'/>
               </div>
               <div className="saved-properties pull-right col-6">
