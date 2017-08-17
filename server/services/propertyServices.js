@@ -1,9 +1,11 @@
 const properties = require('../data/properties');
 const cacheServices = require('./cacheServices');
+const propertyMapper = require('../mappers/propertyMapper');
+
 const PropertyListServices = {
     getPropertyList: () =>
         new Promise((resolve, reject) => {
-            resolve(properties.results);
+            resolve(propertyMapper(properties.results));
         }),
 
     getSavedPropertyList: () =>

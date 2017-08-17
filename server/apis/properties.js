@@ -10,11 +10,10 @@ router.post('/properties/', function (req, res) {
           .getPropertyList()
           .then(properties => {
             res.json(properties)
-          })
+          }).catch(e => {})
     }else{
       res.json('');
     }
-
 });
 
 router.post('/saved-properties/', noCache, function (req, res) {

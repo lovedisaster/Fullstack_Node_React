@@ -21,12 +21,10 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.resolve(__dirname, '..', 'client')));
 app.use(express.static(path.resolve(__dirname, '..', 'node_modules')));
 app.use(function (err, req, res, next) {
-  console.error(err);
-  console.error(err.stack);
   res.status(err.status || 500).send(err.message || 'Internal server error.');
+  //Need decent error handling 
 });
 
-//Webpack
 app.use(webpackMiddleware(webpack(webpackConfig),{
   publicPath: webpackConfig.output.publicPath,
   headers: {"X-Custom-Webpack-Header" : "yes"},

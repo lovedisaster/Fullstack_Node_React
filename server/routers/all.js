@@ -4,7 +4,6 @@ const express = require('express'),
     router = express.Router();
 
 router.get('/*', function(req, res) {
-    console.log(config.isProd);
     res.render(path.resolve(config.paths.server_pages + '/index'), { isProd: config.isProd});
 });
 
