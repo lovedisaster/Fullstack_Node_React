@@ -3,8 +3,11 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
 const webpack = require("webpack");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+
+// entry: './client/index.js',
+
 module.exports = {
-  entry: './client/index.js',
+  entry: './apolloClient/app.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'client/public/build'),

@@ -5,6 +5,7 @@
         app.use(function (req, res, next) {
             app.use('/', require('./all'));
             app.use('/api', require('../apis/properties'));
+            app.use('/graphql', require('../graphql/express_graphql'));
             next();
         });
         

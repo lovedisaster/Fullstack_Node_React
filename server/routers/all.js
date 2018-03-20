@@ -3,7 +3,7 @@ const express = require('express'),
     config = require('../../config');
     router = express.Router();
 
-router.get('/*', function(req, res) {
+router.get('^(?!.*(graphql|api))', function(req, res) {
     res.render(path.resolve(config.paths.server_pages + '/index'), { isProd: config.isProd});
 });
 
