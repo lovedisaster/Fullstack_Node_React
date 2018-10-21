@@ -1,0 +1,59 @@
+.list-container{
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;    
+    .car-list{
+        width:100%;
+        max-width: 400px;
+        li{
+            border: 1px dashed #ddd;
+            border-bottom:none;
+            display:block;
+            width:100%;
+            clear:both;
+            padding:15px;
+            position:relative;
+            &:last-child{
+                border-bottom:1px dashed #ddd;
+
+            }
+            .centered-btn{
+                border:1px solid #333;
+                background-color:#fff;
+                position:absolute;
+                bottom:15px;
+                right:15px;
+                transition: ease all 0.3s;
+                &:hover{
+                    background-color:#333;
+                    color:#fff
+                }
+            }
+            span{
+                display:block;
+                width:100%;
+                clear:both;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                text-align: left;
+                overflow:hidden;
+                &.property-img{
+                    img{
+                        width:100%;
+                    }
+                }
+                &.price{
+                    height:40px;
+                }
+            }
+            &.empty{
+                display:block;
+                height:100px;
+            }
+        }
+    }
+}
