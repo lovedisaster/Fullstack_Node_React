@@ -5,13 +5,9 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { ApolloProvider } from 'react-apollo';
-
-// import {
-//     ApolloClient,
-//     ApolloProvider,
-//     createBatchingNetworkInterface
-// } from 'react-apollo';
-import Cars from './cars/Cars';
+import Home from './Home/Home';
+import Nav from './Shared/Nav/Nav';
+import LogoBanner from './Shared/LogoBanner/LogoBanner';
 
 const link = new HttpLink({
     uri:'http://localhost:3000/graphql/'
@@ -26,8 +22,15 @@ class RootComponent extends React.Component {
     render() {
         return (
             <ApolloProvider client={client}>
-                <div className="react-wrapper">
-                    <Cars/>
+                <div className="body-wrapper">
+                    <Nav/>
+                    <LogoBanner/>
+                    <Home/>
+                    {
+                        /*
+                        <Cars/>
+                        */
+                    }
                 </div>
             </ApolloProvider>
         );

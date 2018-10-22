@@ -4,10 +4,10 @@ const webpack = require("webpack");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './apolloClient/app.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/public/build'),
+    path: path.resolve(__dirname, 'server/public/build'),
     publicPath: '/build/'
   },
   context: __dirname,
