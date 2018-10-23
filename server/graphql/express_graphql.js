@@ -1,6 +1,7 @@
 const express_graphql = require('express-graphql');
 const { buildSchema } = require('graphql');
 const propertyServices = require('../services/propertyServices');
+const donationServices = require('../services/donationServices');
 
 //Schema defines type of posible attributes from root.
 const schema = buildSchema(`
@@ -12,6 +13,14 @@ const schema = buildSchema(`
     addCarItem(id : String) : [CarItem]
   }
   
+  type Subscription {
+    donate(amount: Int) : CurrentDonation
+  }
+
+  type CurrentDonation {
+    total : Int
+  }
+
   type BrandingColor {
       primary: String
   }
@@ -29,6 +38,9 @@ const schema = buildSchema(`
 
 //Root is implementations of schema which adapts to promise. 
 var root = {
+  donate: (amount) => donationServices
+    .makeDonation(amount.amount)
+    .then(total => total),
   addCarItem: (id) => 
     propertyServices
     .addProperty(id.id)

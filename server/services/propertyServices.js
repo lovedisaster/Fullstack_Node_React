@@ -24,7 +24,6 @@ const PropertyListServices = {
             }
             resolve(savedProperties);
         }),
-
     deleteProperty: (propertyID) =>
         new Promise((resolve, reject) => {
             resolve(deletePropertyByID(propertyID , 'savedProperties'));
@@ -62,4 +61,5 @@ const getAndSetSavedProperties = function (k, v) {
         return cacheServices.getCache(k);
     }
 }
+
 module.exports = PropertyListServices;
