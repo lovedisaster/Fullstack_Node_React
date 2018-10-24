@@ -5,7 +5,7 @@ import Donate from './Donate/Donate';
 import Login from './Login/Login';
 import ThankYou from './ThankYou/ThankYou';
 
-const SubSteps = {
+export const SubSteps = {
   LOGIN : "LOGIN",
   DISCLAIMER : "DISCLAIMER",
   DONATE : "DONATE",
