@@ -22,15 +22,11 @@ module.exports = {
       loader: 'babel-loader'
     },
     {
-      test: /\.scss$/,
+      test: /\.css$/,
       use: [{
         loader: "style-loader"
       }, {
         loader: "css-loader", options: {
-          sourceMap: false
-        }
-      }, {
-        loader: "sass-loader", options: {
           sourceMap: false
         }
       }]

@@ -5,11 +5,13 @@ header {
     position: fixed;
     top:0;
     background-color: #333;
-    >.container{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
+    
+}
+
+header >.container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .nav-link {
     color: #eee;
