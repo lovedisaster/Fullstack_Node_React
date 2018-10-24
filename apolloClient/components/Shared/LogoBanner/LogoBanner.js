@@ -1,5 +1,5 @@
 import React from 'react';
-import './LogoBanner.scss';
+import './LogoBanner.css';
 
 const LogoBanner = () => {
     return (

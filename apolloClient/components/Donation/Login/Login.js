@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import {Wrapper} from '../Donation.style';
-import './Login.scss';
+import './Login.css';
 import {SubSteps} from '../Donation';
 
 
