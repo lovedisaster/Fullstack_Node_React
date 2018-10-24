@@ -15,6 +15,7 @@ const schema = buildSchema(`
   
   type Subscription {
     donate(amount: Int) : CurrentDonation
+    getTotal : CurrentDonation
   }
 
   type CurrentDonation {
@@ -40,6 +41,9 @@ const schema = buildSchema(`
 var root = {
   donate: (amount) => donationServices
     .makeDonation(amount.amount)
+    .then(total => total),
+  getTotal: () => donationServices
+    .getDonationTotal()
     .then(total => total),
   addCarItem: (id) => 
     propertyServices

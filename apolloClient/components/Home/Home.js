@@ -1,34 +1,14 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import {graphql, compose} from 'react-apollo';
+import {graphql, compose, Subscription} from 'react-apollo';
 import Loader from '../Shared/Loader/Loader';
 import {Banner} from './Home.style';
 
-const query = gql`{
-    results {
-      price,
-      agency {
-        brandingColors {
-          primary
-        }
-        logo
-      }
-      id,
-      mainImage
-    },
-    savedResults {
-        price,
-        agency {
-          brandingColors {
-            primary
-          }
-          logo
-        }
-        id,
-        mainImage
-      }
-  }`
-
+const total = gql`
+    subscription {
+        getTotal
+    }
+`
 
 class Home extends React.Component {    
 
@@ -36,29 +16,32 @@ class Home extends React.Component {
         super(props);
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-            loading: nextProps.data.loading,
-            result: nextProps.data.results,
-            savedResults:nextProps.data.savedResults
-        })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({
+    //         loading: nextProps.data.loading,
+    //         getTotal: nextProps.data.getTotal.total
+    //     })
+    // }
 
     render() {
-        const {data} = this.props
-        if(data.loading) {
-            return <Loader/>
-        }
         return (
-            <div className='home-page'>
-                <Banner className='banner'>
-                    Banner
-                </Banner>
-            </div>
+            <Subscription subscription={total}>
+               {({ data: {getTotal}, loading }) => {
+                   if(loading) {
+                       return  <Loader/> 
+                   }
+                   else {
+                    return 
+                   <div className='home-page'>
+                        <Banner className='banner'>
+                            Banner {getTotal.total}
+                        </Banner>
+                    </div>
+                   }
+                }}
+            </Subscription>
         )
     }
 }
 
-export default compose(
-    graphql(query)
-)(Home);
+export default Home;
