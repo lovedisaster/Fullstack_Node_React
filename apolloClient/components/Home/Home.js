@@ -1,8 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {graphql, compose} from 'react-apollo';
-import './Home.scss'
 import Loader from '../Shared/Loader/Loader';
+import {Banner} from './Home.style';
+
 const query = gql`{
     results {
       price,
@@ -50,9 +51,9 @@ class Home extends React.Component {
         }
         return (
             <div className='home-page'>
-                <div className='banner'>
+                <Banner className='banner'>
                     Banner
-                </div>
+                </Banner>
             </div>
         )
     }

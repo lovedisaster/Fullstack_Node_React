@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 import {Wrapper} from '../Donation.style';
+import './Login.scss';
+import {SubSteps} from '../Donation';
 
 
 // ------------------------------------------------
@@ -39,9 +41,13 @@ export default class Login extends Component{
     // when click sign in button using axios to post login user detail
     submitForm(event){
       event.preventDefault();
-      
+      if(this.state && this.state.username && this.state.password) {
+        this.setState({authenticated: true});
+        this.props.stepHandler(SubSteps.DISCLAIMER);
+      }else{
+        alert('Login form is not validated.')
+      }
     }
-
 
     render(){
       // alert user if error login

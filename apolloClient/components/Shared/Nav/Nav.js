@@ -7,13 +7,7 @@ const Nav = () => {
             <div className="container">
             <ul className="nav justify-content-end">
             <li className="nav-item">
-                <a className="nav-link active" href="#">Active</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="#">Make a donation</a>
+                <a href="/donation" className="nav-link active">Make a donation</a>
             </li>
             </ul>
             </div>
