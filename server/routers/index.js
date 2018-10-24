@@ -6,6 +6,7 @@
             app.use('/', require('./all'));
             app.use('/api', require('../apis/properties'));
             app.use('/graphql', require('../graphql/express_graphql'));
+            app.use('/donation', require('./all'));
             next();
         });
         
