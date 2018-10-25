@@ -4,30 +4,11 @@ import {graphql, compose} from 'react-apollo';
 import Loader from '../Shared/Loader/Loader';
 import {Banner,BannerTitle} from './Home.style';
 import MoneyBag from './Money - icon.png';
-
+import {NumberFormat} from '../../Utils/CommonUtils';
 const query = gql`{
-    results {
-      price,
-      agency {
-        brandingColors {
-          primary
-        }
-        logo
-      }
-      id,
-      mainImage
+    donationTotal{
+        total
     },
-    savedResults {
-        price,
-        agency {
-          brandingColors {
-            primary
-          }
-          logo
-        }
-        id,
-        mainImage
-      }
   }`
 
 class Home extends React.Component {    
@@ -39,8 +20,7 @@ class Home extends React.Component {
     componentWillReceiveProps(nextProps) {
         this.setState({
             loading: nextProps.data.loading,
-            result: nextProps.data.results,
-            savedResults:nextProps.data.savedResults
+            total: NumberFormat(nextProps.data.donationTotal.total),
         })
     }
 
@@ -54,7 +34,7 @@ class Home extends React.Component {
                     <BannerTitle>
                         <div className="col">
                             <div className="row-md-auto">
-                                <h1><img src={MoneyBag} alt={''}/>$ 20,000 </h1>
+                                <h1><img src={MoneyBag} alt={''}/> {this.state.total} </h1>
                             </div>
                             <br/>
                             <div className="row-md-auto text-center">
