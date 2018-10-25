@@ -28,10 +28,15 @@ module.exports = {
   ],
   devtool: "eval-source-map",
   module: {
-    rules: [{
+    rules: [
+    {
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel-loader'
+    },
+    {
+      test:/\.(png|jpg|ico)$/,
+      use:'url-loader' 
     },
     {
       test: /\.css$/,
