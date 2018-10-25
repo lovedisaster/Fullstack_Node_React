@@ -17,7 +17,7 @@ class Donate extends Component {
   }
 
   _keyPressHandler(e) {
-    this.setState({amount: parseFloat(e.target.value)});
+    this.setState({amount: parseFloat(e.target.value.replace(',', ''))});
   }
 
   _submitForm() {

@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const LoaderWrapper = styled.div`
     position: fixed;
-    z-index: 100;
+    z-index: 200;
     top:0;
     bottom:0;
+    background-color:#fff;
     left:0;
     right:0;
     display: flex;
