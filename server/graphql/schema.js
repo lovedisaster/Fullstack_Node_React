@@ -20,6 +20,7 @@ const typeDefs = `
   }
   type CurrentDonation {
     total : Int
+    message: String
   }
 `;
 
