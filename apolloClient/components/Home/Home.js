@@ -2,13 +2,14 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {graphql, compose, Subscription} from 'react-apollo';
 import Loader from '../Shared/Loader/Loader';
-import {Banner} from './Home.style';
-
-const total = gql`
-    subscription {
-        getTotal
-    }
-`
+import {Banner,BannerTitle} from './Home.style';
+import MoneyBag from './Money - icon.png';
+import {NumberFormat} from '../../Utils/CommonUtils';
+const query = gql`{
+    donationTotal{
+        total
+    },
+  }`
 
 class Home extends React.Component {    
 
@@ -16,32 +17,34 @@ class Home extends React.Component {
         super(props);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({
-    //         loading: nextProps.data.loading,
-    //         getTotal: nextProps.data.getTotal.total
-    //     })
-    // }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            loading: nextProps.data.loading,
+            total: NumberFormat(nextProps.data.donationTotal.total),
+        })
+    }
 
     render() {
         return (
-            <Subscription subscription={total}>
-               {({ data: {getTotal}, loading }) => {
-                   if(loading) {
-                       return  <Loader/> 
-                   }
-                   else {
-                    return 
-                   <div className='home-page'>
-                        <Banner className='banner'>
-                            Banner {getTotal.total}
-                        </Banner>
+        <Banner>
+            <BannerTitle>
+                <div className="col">
+                    <div className="row-md-auto">
+                        <h1><img src={MoneyBag} alt={''}/> {this.state.total} </h1>
                     </div>
-                   }
-                }}
-            </Subscription>
+                    <br/>
+                    <div className="row-md-auto text-center">
+                        <h5>We've collected</h5>
+                    </div>
+                </div>
+            </BannerTitle>
+        </Banner>
         )
     }
 }
 
-export default Home;
+export default compose(
+    graphql(query)
+  )(Home);
+  

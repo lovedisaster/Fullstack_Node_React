@@ -8,7 +8,7 @@ class ThankYou extends Component {
     return (
       <Wrapper>
         <ThankYouWrapper>
-        <p>Thank you</p>
+        <p>Thank you for your help.</p>
         <a href="/">Back to home page</a>
         </ThankYouWrapper>
       </Wrapper>

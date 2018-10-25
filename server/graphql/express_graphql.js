@@ -8,12 +8,10 @@ const schema = buildSchema(`
   type Query {
       results: [CarItem]
       savedResults: [CarItem]
+      donationTotal: CurrentDonation
   }
   type Mutation {
     addCarItem(id : String) : [CarItem]
-  }
-  
-  type Subscription {
     donate(amount: Int) : CurrentDonation
     getTotal : CurrentDonation
   }
@@ -55,6 +53,11 @@ var root = {
       console.log("e");
       return [];
   }),
+  donationTotal: () => donationServices
+    .getCurrentDonation()
+    .then(total => total),
+
+
   savedResults: () => 
   propertyServices
   .getSavedPropertyList()

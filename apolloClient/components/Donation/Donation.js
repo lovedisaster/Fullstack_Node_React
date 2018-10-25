@@ -5,12 +5,25 @@ import Donate from './Donate/Donate';
 import Login from './Login/Login';
 import ThankYou from './ThankYou/ThankYou';
 
+import gql from 'graphql-tag';
+import {graphql, compose} from 'react-apollo';
+
+
 export const SubSteps = {
   LOGIN : "LOGIN",
   DISCLAIMER : "DISCLAIMER",
   DONATE : "DONATE",
   THANKYOU : "THANKYOU"
 }
+
+
+const mutation = gql`
+    mutation donate($amount : Int){
+        donate(amount: $amount) {
+            total
+        }
+    }
+`
 
 
 class Donation extends React.Component {
@@ -20,6 +33,7 @@ class Donation extends React.Component {
       currentStep: SubSteps.LOGIN
     }
     this._goToStep = this._goToStep.bind(this);
+    this._addToSaved = this._addToSaved.bind(this);
   }
 
   _goToStep(step) {
@@ -28,6 +42,23 @@ class Donation extends React.Component {
       ns.currentStep = step;
       return ns;
     })
+  }
+
+  _addToSaved(amount){
+    this.props
+      .mutate({variables: {amount: amount}})
+      .then(res => {
+          if(res.data && res.data.donate){
+            alert("You have contributed : $" + amount + " to our foundation : $" + res.data.donate.total );
+          }
+          this._goToStep(SubSteps.THANKYOU);
+
+          //this.props.data.savedResults = res.data.addCarItem
+          //this.setState({savedResults: res.data.addCarItem})
+      })
+      .catch(e => {
+        alert('Failed to make donation.');
+      })
   }
 
   render() {
@@ -42,7 +73,7 @@ class Donation extends React.Component {
         );
       case SubSteps.DONATE : 
         return (
-           <Donate stepHandler={this._goToStep}/>
+           <Donate stepHandler={this._goToStep} submitHandler={this._addToSaved}/>
         );
       case SubSteps.THANKYOU : 
         return (
@@ -57,4 +88,7 @@ class Donation extends React.Component {
   }
 }
 
-export default Donation;
+export default compose(
+  graphql(mutation)
+)(Donation);
+

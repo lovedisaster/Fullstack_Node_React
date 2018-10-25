@@ -1,12 +1,13 @@
 {
-  "name": "react-redux-starter-nathan",
+  "name": "green-foundation",
   "version": "1.0.0",
   "description": "Starter",
   "scripts": {
     "prod": "cross-env NODE_ENV=production node ./server/app.js",
     "start": "cross-env NODE_ENV=development node ./server/app.js",
     "functional-test": "mocha --compilers js:babel-core/register --reporter progress \"server/tools/test.js\" \"server/services/*.test.js\"",
-    "user-test": "jest"
+    "user-test": "jest",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "connect-nocache": "^1.1.0",
     "css-loader": "^0.28.0",
     "express": "^4.15.2",
+    "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.2.1",
     "node-cache": "^4.1.1",
     "pug": "^2.0.0-rc.2",
@@ -69,6 +71,7 @@
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
     "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^1.1.2",
     "webpack": "^2.7.0",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-livereload-plugin": "^0.10.0"

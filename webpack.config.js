@@ -2,7 +2,7 @@ const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const webpack = require("webpack");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // entry: './client/index.js',
 
@@ -22,16 +22,22 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new LiveReloadPlugin({port: 3001, hostname: 'localhost'}),
     new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        }),
+      $: "jquery",
+      jQuery: "jquery"
+    }),
+    new HtmlWebpackPlugin()
   ],
   devtool: "eval-source-map",
   module: {
-    rules: [{
+    rules: [
+    {
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel-loader'
+    },
+    {
+      test:/\.(png|jpg|ico)$/,
+      use:'url-loader' 
     },
     {
       test: /\.css$/,
