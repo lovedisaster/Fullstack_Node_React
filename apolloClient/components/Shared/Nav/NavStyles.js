@@ -8,6 +8,7 @@ export const NavWrapper = styled.header `
     top:0;
     font-family:'Questrial', sans-serif;
     background-color:#333;
+    z-index: 100;
     >.container{
         display: flex;
         align-items: center;

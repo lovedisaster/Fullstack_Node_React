@@ -21,6 +21,9 @@
     "connect-nocache": "^1.1.0",
     "css-loader": "^0.28.0",
     "express": "^4.15.2",
+    "graphql-server-express": "^1.4.0",
+    "graphql-tools": "^4.0.2",
+    "graphql-yoga": "^1.16.7",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.2.1",
     "node-cache": "^4.1.1",
@@ -37,8 +40,8 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
-    "volleyball": "^1.4.1",
-    "styled-components": "3.2.6"
+    "styled-components": "3.2.6",
+    "volleyball": "^1.4.1"
   },
   "devDependencies": {
     "apollo-cache-inmemory": "^1.1.11",

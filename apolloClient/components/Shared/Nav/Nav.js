@@ -15,6 +15,6 @@ const Nav = () => {
             </div>
         </NavWrapper>
     )
-    }
+}
 
 export default Nav;
