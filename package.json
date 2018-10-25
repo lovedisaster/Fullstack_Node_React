@@ -70,6 +70,7 @@
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
     "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^1.1.2",
     "webpack": "^2.7.0",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-livereload-plugin": "^0.10.0"

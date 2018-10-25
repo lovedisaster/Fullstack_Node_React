@@ -2,7 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {graphql, compose} from 'react-apollo';
 import Loader from '../Shared/Loader/Loader';
-import {Banner} from './Home.style';
+import {Banner,BannerTitle} from './Home.style';
+import MoneyBag from './Money - icon.png';
 
 const query = gql`{
     results {
@@ -50,11 +51,19 @@ class Home extends React.Component {
             return <Loader/>
         }
         return (
-            <div className='home-page'>
-                <Banner className='banner'>
-                    Banner
+                <Banner>
+                    <BannerTitle>
+                        <div className="col">
+                            <div className="row-md-auto">
+                                <h1><img src={MoneyBag} alt={''}/>$ 20,000 </h1>
+                            </div>
+                            <br/>
+                            <div className="row-md-auto text-center">
+                                <h5>We've collected</h5>
+                            </div>
+                        </div>
+                    </BannerTitle>
                 </Banner>
-            </div>
         )
     }
 }
