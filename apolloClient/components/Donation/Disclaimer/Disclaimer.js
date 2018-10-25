@@ -63,6 +63,7 @@ class Disclaimer extends Component {
                 Yes, I accept
               </Question>
             </QuestionWrapper>
+            <br/>
             <Button value="Next" width={'150px'} onClickHandler={this._onSubmit} disabled={this.state ? !this.state.accepted : true} />
           </DisclaimerForm>
         </div>

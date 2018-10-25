@@ -20,11 +20,10 @@ class Donate extends Component {
     this.setState({amount: parseFloat(e.target.value)});
   }
 
-
   _submitForm() {
     if(this.state && this.state.amount > 0) {
       //Call backend for donation 
-      this.props.stepHandler(SubSteps.THANKYOU);
+      this.props.submitHandler(this.state.amount);
     }
   }
 
@@ -32,6 +31,11 @@ class Donate extends Component {
     return (
       <Wrapper>
           <DonationForm>
+            <small>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            </small>
+            <br/><br/>
             <ValidationNumberField keyProp='Amount' keyPressHandler={this._keyPressHandler} onFocusHandler={() => {}}  onBlurHandler={() => {}} formatNumber={true} name='Amount' placeHolder="Enter Donation Amount"
                 errorMsg="Must be less than 10,000"/>    
               <br/>              <br/>

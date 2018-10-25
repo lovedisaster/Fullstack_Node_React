@@ -30,7 +30,6 @@ const query = gql`{
       }
   }`
 
-
 class Home extends React.Component {    
 
     constructor(props) {

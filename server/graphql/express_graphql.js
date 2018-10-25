@@ -11,9 +11,6 @@ const schema = buildSchema(`
   }
   type Mutation {
     addCarItem(id : String) : [CarItem]
-  }
-  
-  type Subscription {
     donate(amount: Int) : CurrentDonation
   }
 

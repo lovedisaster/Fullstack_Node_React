@@ -11,4 +11,5 @@ export const FooterWrapper = styled.div`
     text-align: center;
     font-size: 12px;
     height: 30px;
+    padding-top: 5px;
 `
