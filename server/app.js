@@ -9,6 +9,10 @@ const NodeCache = require( "node-cache" );
 const config = require('../config');
 const webpackConfig = config.isProd ?  require('../webpack.production.config.js') : require('../webpack.config.js');
 const bodyParser = require('body-parser');
+const { createServer } = require('http')
+const { subscribe, execute } = require('graphql')
+const schema = require('./graphql/schema');
+const { SubscriptionServer } = require('subscriptions-transport-ws');
 
 app.use(volleyball);
 app.set('views', config.paths.server_pages);
@@ -34,7 +38,22 @@ app.use(webpackMiddleware(webpack(webpackConfig),{
 }));
 
 app = routers.router(app);
-app.listen(process.env.PORT || 3000, function () {
+
+const server = createServer(app)
+
+server.listen(process.env.PORT || 3000, function () {
+  new SubscriptionServer(
+    {
+      schema,
+      execute,
+      subscribe,
+      onConnect: () => console.log('Client connected')
+    },
+    {
+      server,
+      path: '/subscriptions'
+    }
+  )
   console.log("Server is running on port 3000");
 });
 

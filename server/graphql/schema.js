@@ -18,9 +18,16 @@ const typeDefs = `
   type Subscription {
     donationTotal: CurrentDonation
   }
+
   type CurrentDonation {
     total : Int
     message: String
+  }
+
+  schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
   }
 `;
 
@@ -35,13 +42,17 @@ const resolvers = {
       return donationServices
         .makeDonation(args.amount)
         .then(total => {
-          pubsub.publish('NEW_NUM', total);
+          pubsub.publish('NEW_NUM', {donationTotal: {total : total.total}});
           return total;
         })
       },
   },
   Subscription: {
-    donationTotal: pubsub.asyncIterator('NEW_NUM')
+    donationTotal: {
+        subscribe: () => {
+          return pubsub.asyncIterator('NEW_NUM');
+        }
+    }
   }
 };
 
