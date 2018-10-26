@@ -1,15 +1,20 @@
 const cacheServices = require('./cacheServices');
 
+const donationLimit = 1000000;
+const totalDonationMessage = "Total donations made";
+const successfulDonationMessage = "Donated successfully";
+const errorMessage = "Donation failed.";
+
 const DonationServices = {
     makeDonation: (amount) => 
         new Promise((resolve, reject) => {
-            const currentFundAmount = setCache('total', amount);
-            resolve({total: currentFundAmount});
+            const data = setCache('total', amount);
+            resolve({total: data.total, message: data.message});
         }),
     getCurrentDonation: () => 
         new Promise((resolve, reject) => {
-            const currentFundAmount = getCache('total');
-            resolve({total: currentFundAmount});
+            const data = getCache('total');
+            resolve({total: data.total, message: data.message});
         })
 }
 
@@ -17,19 +22,26 @@ const setCache = function (k, v) {
     let value = cacheServices.getCache(k);
     if (value === undefined || value === null) {
         cacheServices.setCache(k, v);
-        return v;
+        return {total: v, message: errorMessage};
     } else {
         const newTotal = parseInt(value) + parseInt(v)
+        if (newTotal > donationLimit){
+            newTotal = donationLimit;  
+            return {total: donationLimit, message: totalDonationMessage};  
+        }
         cacheServices.setCache(k, newTotal);
-        return cacheServices.getCache(k);
+        return {total: parseInt(v), message: successfulDonationMessage};  
     }
 }
+
 const getCache = function (k) {
     let value = cacheServices.getCache(k);
     if (value === undefined || value === null) {
-        return 0;
+        return {total: 0, message: ""};
     } else {
-        return cacheServices.getCache(k);
+        let v = cacheServices.getCache(k);
+        return {total: v, message: totalDonationMessage};
     }
 }
+
 module.exports = DonationServices;

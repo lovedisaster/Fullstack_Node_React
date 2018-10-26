@@ -16,7 +16,6 @@ export const SubSteps = {
   THANKYOU : "THANKYOU"
 }
 
-
 const mutation = gql`
     mutation donate($amount : Int){
         donate(amount: $amount) {
@@ -25,12 +24,12 @@ const mutation = gql`
     }
 `
 
-
 class Donation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStep: SubSteps.LOGIN
+      currentStep: SubSteps.LOGIN,
+      donatedAmount: 0
     }
     this._goToStep = this._goToStep.bind(this);
     this._addToSaved = this._addToSaved.bind(this);
@@ -49,8 +48,10 @@ class Donation extends React.Component {
       .mutate({variables: {amount: amount}})
       .then(res => {
           if(res.data && res.data.donate){
-            alert("You have contributed : $" + amount + " to our foundation : $" + res.data.donate.total );
+            //alert("You have contributed : $" + amount + " to our foundation : $" + res.data.donate.total );            
+            this.setState({donatedAmount: amount});
           }
+
           this._goToStep(SubSteps.THANKYOU);
 
           //this.props.data.savedResults = res.data.addCarItem
@@ -77,7 +78,7 @@ class Donation extends React.Component {
         );
       case SubSteps.THANKYOU : 
         return (
-          <ThankYou/>
+          <ThankYou donatedAmount = {this.state.donatedAmount} />
         );
       default: 
         return (
