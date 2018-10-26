@@ -33,7 +33,7 @@ class Home extends React.Component {
                     <BannerTitle>
                         <div className="col">
                             <div className="row-md-auto text-center">
-                                <h5>Found Collected: </h5>
+                                <h5>We'v raised:</h5>
                                 <br/>
 
                                 <h1><img src={MoneyBag} alt={''}/>
