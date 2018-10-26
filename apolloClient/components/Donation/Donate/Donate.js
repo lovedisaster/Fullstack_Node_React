@@ -17,7 +17,6 @@ class Donate extends Component {
   }
 
   _keyPressHandler(e) {
-    console.log(e.target.value.replace(/,/g, ''));
     this.setState({amount: parseFloat(e.target.value.replace(/,/g, ''))});    
   }
 
@@ -38,7 +37,7 @@ class Donate extends Component {
             </small>
             <br/><br/>
             <ValidationNumberField keyProp='Amount' keyPressHandler={this._keyPressHandler} onFocusHandler={() => {}}  onBlurHandler={() => {}} formatNumber={true} name='Amount' placeHolder="Enter Donation Amount"
-                errorMsg="Must be less than 10,000"/>    
+                errorMsg="Must be less than 1,000,000"/>    
               <br/>              <br/>
               <br/>
 

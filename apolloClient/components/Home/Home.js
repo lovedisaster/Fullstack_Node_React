@@ -36,26 +36,23 @@ class Home extends React.Component {
                                 <h5>We'v raised:</h5>
                                 <br/>
 
-                                <h1><img src={MoneyBag} alt={''}/>
                                 <Subscription subscription={subscriptionQuery}>
                                     {(data) => {
-                                        console.log(data);
                                         if(data != undefined) {
                                             if(data.loading) {
-                                                console.log(data);
-                                                return <p>Loading...</p>
+                                                return <h1>Loading...</h1>
                                             }else{
-                                                return <p>{data.data.donationTotal.total}</p>
-
+                                                return <h1>
+                                                    <img src={MoneyBag} alt={''}/>
+                                                        {data.data.donationTotal.total}
+                                                    </h1>
                                             }
                                         }else {
-                                            return <p>0</p>
+                                            return <h1><img src={MoneyBag} alt={''}/>0</h1>
                                         }
-                                        return <p>0</p>
-                              
+                                        return <h1><img src={MoneyBag} alt={''}/>0</h1>
                                     }}
                                 </Subscription>
-                                </h1>
                             </div>
                         </div>
                     </BannerTitle>

@@ -25,7 +25,7 @@ export class ValidationNumberField extends Component {
         e.target.value = isNumber ? e.target.value : '';
     }
 
-    let validRange = (isNumber && Number(value.replace(',','')) < 10000) || e.target.value === '';
+    let validRange = (isNumber && Number(value.replace(',','')) < 1000000) || e.target.value === '';
     
     this.setState(oldState => {
       return {...oldState, warning: !validRange}
