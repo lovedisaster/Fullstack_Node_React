@@ -24,7 +24,7 @@ const setCache = function (k, v) {
         cacheServices.setCache(k, v);
         return {total: v, message: errorMessage};
     } else {
-        const newTotal = parseInt(value) + parseInt(v)
+        let newTotal = parseInt(value) + parseInt(v)
         if (newTotal > donationLimit){
             newTotal = donationLimit;  
             return {total: donationLimit, message: totalDonationMessage};  
