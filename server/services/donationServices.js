@@ -31,7 +31,7 @@ const setCache = function (k, v) {
             return {total: donationLimit, message: totalDonationMessage};  
         }
         cacheServices.setCache(k, newTotal);
-        return {total: parseInt(v), message: successfulDonationMessage};  
+        return {total: newTotal, message: successfulDonationMessage};  
     }
 }
 
