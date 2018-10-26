@@ -50,7 +50,6 @@ class Home extends React.Component {
                                             }
                                         }else {
                                             return <p>0</p>
-
                                         }
                                         return <p>0</p>
                               
