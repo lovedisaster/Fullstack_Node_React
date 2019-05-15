@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Wrapper} from '../Donation.style';
 import {DonationForm} from './Donate.style';
-
 import {ValidationNumberField} from '../../Shared/Inputs/Inputs';
 import {Button} from '../../Shared/Buttons/Buttons';
-import {SubSteps} from '../Donation';
+
 class Donate extends Component {
   constructor(props){
     super(props);

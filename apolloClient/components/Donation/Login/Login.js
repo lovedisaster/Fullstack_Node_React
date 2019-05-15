@@ -3,10 +3,6 @@ import {Wrapper} from '../Donation.style';
 import './Login.css';
 import {SubSteps} from '../Donation';
 
-
-// ------------------------------------------------
-// LOGIN Form Component : Handle user login request
-// ------------------------------------------------
 export default class Login extends Component{
     // this.state to store the user information
     constructor(props){

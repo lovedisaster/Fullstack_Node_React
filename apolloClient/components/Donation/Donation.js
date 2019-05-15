@@ -23,7 +23,6 @@ const mutation = gql`
         }
     }
 `
-
 class Donation extends React.Component {
   constructor(props) {
     super(props);
