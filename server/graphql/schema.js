@@ -1,6 +1,6 @@
 const {
   makeExecutableSchema,
-  addMockFunctionsToSchema,
+  addMockFunctionsToSchema
 } = require('graphql-tools'); 
 
 const donationServices = require('../services/donationServices');

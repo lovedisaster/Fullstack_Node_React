@@ -48,14 +48,9 @@ class Donation extends React.Component {
       .mutate({variables: {amount: amount}})
       .then(res => {
           if(res.data && res.data.donate){
-            //alert("You have contributed : $" + amount + " to our foundation : $" + res.data.donate.total );            
             this.setState({donatedAmount: amount});
           }
-
           this._goToStep(SubSteps.THANKYOU);
-
-          //this.props.data.savedResults = res.data.addCarItem
-          //this.setState({savedResults: res.data.addCarItem})
       })
       .catch(e => {
         alert('Failed to make donation.');
